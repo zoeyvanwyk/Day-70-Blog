@@ -13,6 +13,7 @@ import os
 
 
 app = Flask(__name__)
+app.app_context()
 app.config['SECRET_KEY'] = os.getenv('KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
@@ -71,7 +72,7 @@ class Comment(db.Model):
     text = db.Column(db.Text, nullable=False)
 
 
-db.create_all()
+# db.create_all()
 
 
 # admin-only decorator
